@@ -32,7 +32,7 @@ def create_table():
         (ID                     INT    PRIMARY KEY     NOT NULL,
         NAME                    TEXT    NOT NULL,
         DESCRIPTION             TEXT     NOT NULL,
-        SIZE                    INT,
+        SIZE                    TEXT,
         UNIT_PRICE              REAL,
         IN_STOCK                INT,
         ON_ORDER                INT)''')
@@ -54,7 +54,7 @@ def add_new_product():
     create_table()
     conn.execute('INSERT INTO PRODUCT VALUES (?,?,?,?,?,?,?)', (ID, NAME, DESCRIPTION, SIZE, UNIT_PRICE, IN_STOCK, ON_ORDER))
     conn.commit()
-
+    "\n"
     return
 
 
@@ -78,7 +78,6 @@ def update_a_row():
     id = input('Enter ID: ')
     price = input('Enter the new price: ')
     create_table()
-    # c = cur.execute("UPDATE PRODUCT SET UNIT_PRICE = price  WHERE UNIT_PRICE = price_1 and ID = ?", (id,))
     c = cur.execute("UPDATE PRODUCT SET UNIT_PRICE = ?  WHERE ID = ?",(price, id) )
     conn.commit()
     return
