@@ -21,11 +21,12 @@ def display_menu_get_choice():
 
     return choice
 
-
+# Connect to the database.
 conn = sqlite3.connect(db)
 cur = conn.cursor()
 print ("Opened database successfully\n")
 
+# Create a table in the database.
 def create_table():
 
     conn.execute('''CREATE TABLE IF NOT EXISTS PRODUCT
@@ -39,8 +40,7 @@ def create_table():
 
     return
 
-# cur.execute('drop table PRODUCT')
-
+# Add rows to the table.
 def add_new_product():
 
     ID = input('Enter product id: ')
@@ -58,7 +58,7 @@ def add_new_product():
     return
 
 
-
+# Show all the rows in the table.
 def display_all_rows():
     c = cur.execute("SELECT * from PRODUCT")
     for row in c:
@@ -74,6 +74,7 @@ def display_all_rows():
 
     return
 
+# Update a row in the table and save the changes.
 def update_a_row():
     id = input('Enter ID: ')
     price = input('Enter the new price: ')
@@ -82,14 +83,13 @@ def update_a_row():
     conn.commit()
     return
 
-
+# Delete a row in the table and save the changes
 def delete_a_row():
-
     id = input('Enter ID ')
     c = cur.execute("DELETE FROM PRODUCT WHERE ID = ?", (id,))
-
     conn.commit()
 
+# Display a single row in the table.
 def display_a_row():
     id  = input('Enter the ID: ')
     c = cur.execute("SELECT * FROM  PRODUCT WHERE ID = ?", (id,))

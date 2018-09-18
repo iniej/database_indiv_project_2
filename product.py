@@ -1,5 +1,6 @@
 import ui
 
+# A function to handle items on the menu.
 def handle_choice(choice):
 
     if choice == '1':
@@ -22,12 +23,13 @@ def handle_choice(choice):
         ui.display_a_row()
 
     elif choice == 'q':
+        print('Bye!')
         quit()
 
     else:
         ui.message('Please enter a valid selection\n')
 
-
+# The program is run from the main function.
 def main():
 
     quit = 'q'
