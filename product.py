@@ -9,6 +9,7 @@ def handle_choice(choice):
 
     elif choice == '2':
         ui.add_new_product()
+        print('Row entered successfully')
 
     elif choice == '3':
         ui.update_a_row()
@@ -22,7 +23,7 @@ def handle_choice(choice):
     elif choice == '6':
         ui.display_a_row()
 
-    elif choice == 'q':
+    elif choice == 'q' or choice == 'Q':
         print('Bye!')
         quit()
 

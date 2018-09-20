@@ -48,9 +48,9 @@ def add_new_product():
     DESCRIPTION = input('Enter product description: ')
     SIZE = input('Enter the size: ')
     UNIT_PRICE = input('Enter product unit price: ')
-    IN_STOCK = input('Enter the quantity on hand: ')
-    ON_ORDER = input('Enter the quantity on order: ')
-
+    IN_STOCK = input('Enter the quantity on hand (enter an integer): ')
+    ON_ORDER = input('Enter the quantity on order (enter an integer): ')
+    print(' ')
     create_table()
     conn.execute('INSERT INTO PRODUCT VALUES (?,?,?,?,?,?,?)', (ID, NAME, DESCRIPTION, SIZE, UNIT_PRICE, IN_STOCK, ON_ORDER))
     conn.commit()
